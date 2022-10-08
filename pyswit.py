@@ -53,6 +53,13 @@ class Comment(BaseAPI):
         data = {"message_id": message_id, "content": content}
         return self.post(url, headers, data)
 
+    def list(self, message_id, offset=None, limit=None):
+        url = self.get_endpoint_url()
+        headers = self.get_headers()
+        params = locals()
+        del params["self"]
+        return self.get(url, headers, params)
+
 
 class Message(BaseAPI):
     def __init__(self, access_token):
