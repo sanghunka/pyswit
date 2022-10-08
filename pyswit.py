@@ -41,13 +41,10 @@ class BaseAPI:
 
 class User(BaseAPI):
     def info(self):
-        headers = self.get_headers()
-        r = requests.get(
+        return self.get(
             url=self.get_endpoint_url(),
-            headers=headers,
-            json=None,
+            headers=self.get_headers(),
         )
-        return json.loads(r.content)
 
 
 class Comment(BaseAPI):
