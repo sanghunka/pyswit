@@ -49,25 +49,17 @@ class BaseAPI:
 
 class User(BaseAPI):
     def info(self):
-        return self.get(
-            url=self.get_endpoint_url(),
-            headers=self.get_headers(),
-        )
+        return self.get(url=self.get_endpoint_url(), headers=self.get_headers())
 
 
 class Comment(BaseAPI):
     def create(self, message_id, content):
+        url = self.get_endpoint_url()
         headers = self.get_headers(
             accept="application/json", content_type="application/json"
         )
-        data_obj = {"message_id": message_id, "content": content}
-
-        r = requests.post(
-            url=self.get_endpoint_url(),
-            headers=headers,
-            json=data_obj,
-        )
-        return json.loads(r.content)
+        data = {"message_id": message_id, "content": content}
+        return self.post(url, headers, data)
 
 
 class Message(BaseAPI):
@@ -76,17 +68,12 @@ class Message(BaseAPI):
         self.comment = Comment(access_token=access_token, endpoint=self._class_name)
 
     def create(self, channel_id, content):
+        url = self.get_endpoint_url()
         headers = self.get_headers(
             accept="application/json", content_type="application/json"
         )
-        data_obj = {"channel_id": channel_id, "content": content}
-
-        r = requests.post(
-            url=self.get_endpoint_url(),
-            headers=headers,
-            json=data_obj,
-        )
-        return json.loads(r.content)
+        data = {"channel_id": channel_id, "content": content}
+        return self.post(url, headers, data)
 
 
 class Pyswit:
