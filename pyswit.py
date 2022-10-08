@@ -42,9 +42,25 @@ class User(BaseAPI):
         return json.loads(r.content)
 
 
+class Comment(BaseAPI):
+    def create(self, message_id, content):
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        data_obj = {"message_id": message_id, "content": content}
+
+        r = requests.post(
+            url=self.get_endpoint_url(),
+            headers=headers,
+            json=data_obj,
+        )
+        return json.loads(r.content)
+
+
 class Message(BaseAPI):
     def __init__(self, access_token):
         super().__init__(access_token=access_token)
+        self.comment = Comment(access_token=access_token, endpoint=self._class_name)
 
     def create(self, channel_id, content):
         headers = self.get_headers(
