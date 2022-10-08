@@ -30,6 +30,14 @@ class BaseAPI:
             headers.update({"Content-Type": content_type})
         return headers
 
+    def get(self, url, headers, data=None):
+        r = requests.get(
+            url=url,
+            headers=headers,
+            json=data,
+        )
+        return json.loads(r.content)
+
 
 class User(BaseAPI):
     def info(self):
