@@ -60,6 +60,14 @@ class Comment(BaseAPI):
         del params["self"]
         return self.get(url, headers, params)
 
+    def remove(self, id):
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        data = {"id": id}
+        return self.post(url, headers, data)
+
 
 class Message(BaseAPI):
     def __init__(self, access_token):

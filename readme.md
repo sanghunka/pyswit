@@ -9,7 +9,7 @@ Python interface for [swit.io](https://swit.io/)
 | Channels   |      |                         |                               |                    |
 | Messages   | POST | message.comment.create  | swit.message.comment.create() | :white_check_mark: |
 |            | GET  | message.comment.list    | swit.message.comment.list()   | :white_check_mark: |
-|            | POST | message.comment.remove  |                               |                    |
+|            | POST | message.comment.remove  | swit.message.comment.remove() | :white_check_mark: |
 |            | POST | message.create          | swit.message.create()         | :white_check_mark: |
 |            | GET  | message.info            |                               |                    |
 |            | GET  | message.list            |                               |                    |
