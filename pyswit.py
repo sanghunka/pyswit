@@ -30,12 +30,8 @@ class BaseAPI:
             headers.update({"Content-Type": content_type})
         return headers
 
-    def get(self, url, headers, data=None):
-        r = requests.get(
-            url=url,
-            headers=headers,
-            json=data,
-        )
+    def get(self, url, headers, data=None, params=None):
+        r = requests.get(url=url, headers=headers, json=data, params=params)
         return json.loads(r.content)
 
     def post(self, url, headers, data=None):
