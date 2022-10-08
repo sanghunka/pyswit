@@ -38,6 +38,14 @@ class BaseAPI:
         )
         return json.loads(r.content)
 
+    def post(self, url, headers, data=None):
+        r = requests.post(
+            url=url,
+            headers=headers,
+            json=data,
+        )
+        return json.loads(r.content)
+
 
 class User(BaseAPI):
     def info(self):
