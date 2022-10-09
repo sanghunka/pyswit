@@ -65,11 +65,11 @@ class Comment(BaseAPI):
         return self.get(url=url, headers=headers, params=params)
 
     def remove(self, id: str):
+        data = self.params_to_dict(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers(
             accept="application/json", content_type="application/json"
         )
-        data = {"id": id}
         return self.post(url=url, headers=headers, data=data)
 
 
@@ -79,11 +79,11 @@ class Message(BaseAPI):
         self.comment = Comment(access_token=access_token, endpoint=self._class_name)
 
     def create(self, channel_id: str, content: str):
+        data = self.params_to_dict(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers(
             accept="application/json", content_type="application/json"
         )
-        data = {"channel_id": channel_id, "content": content}
         return self.post(url=url, headers=headers, data=data)
 
     def info(self, id: str):
