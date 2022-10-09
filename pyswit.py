@@ -30,6 +30,11 @@ class BaseAPI:
             headers.update({"Content-Type": content_type})
         return headers
 
+    def get_params(self, params: dict):
+        if "self" in params:
+            del params["self"]
+        return params
+
     def get(self, url, headers, data=None, params=None):
         r = requests.get(url=url, headers=headers, json=data, params=params)
         return json.loads(r.content)
@@ -83,9 +88,9 @@ class Message(BaseAPI):
         return self.post(url, headers, data)
 
     def info(self, id: str):
+        params = self.get_params(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers()
-        params = {"id": id}
         return self.get(url=url, headers=headers, params=params)
 
 
