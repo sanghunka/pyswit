@@ -30,7 +30,7 @@ class BaseAPI:
             headers.update({"Content-Type": content_type})
         return headers
 
-    def get_params(self, params: dict):
+    def params_to_dict(self, params: dict):
         if "self" in params:
             del params["self"]
         return params
@@ -88,7 +88,7 @@ class Message(BaseAPI):
         return self.post(url, headers, data)
 
     def info(self, id: str):
-        params = self.get_params(locals())
+        params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers()
         return self.get(url=url, headers=headers, params=params)
