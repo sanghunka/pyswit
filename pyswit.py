@@ -9,7 +9,7 @@ __version__ = "0.0.1"
 class BaseAPI:
     api_url = "https://openapi.swit.io/v1/api"
 
-    def __init__(self, access_token, endpoint=None):
+    def __init__(self, access_token: str, endpoint: str = None):
         self._class_name = self.__class__.__name__.lower()
         self.access_token = access_token
         if endpoint:
@@ -22,7 +22,7 @@ class BaseAPI:
         outer_func_name = inspect.getframeinfo(cframe.f_back).function
         return f"{self.api_url}/{self.endpoint}.{outer_func_name}"
 
-    def get_headers(self, accept=None, content_type=None):
+    def get_headers(self, accept: str = None, content_type: str = None):
         headers = {"Authorization": f"Bearer {self.access_token}"}
         if accept:
             headers.update({"Accept": accept})
@@ -35,11 +35,11 @@ class BaseAPI:
             del params["self"]
         return params
 
-    def get(self, url, headers, data=None, params=None):
+    def get(self, url: str, headers: dict, data: dict = None, params: dict = None):
         r = requests.get(url=url, headers=headers, json=data, params=params)
         return json.loads(r.content)
 
-    def post(self, url, headers, data=None):
+    def post(self, url: str, headers: dict, data: dict = None):
         r = requests.post(url=url, headers=headers, json=data)
         return json.loads(r.content)
 
@@ -50,7 +50,7 @@ class User(BaseAPI):
 
 
 class Comment(BaseAPI):
-    def create(self, message_id, content):
+    def create(self, message_id: str, content: str):
         data = self.params_to_dict(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers(
@@ -58,13 +58,13 @@ class Comment(BaseAPI):
         )
         return self.post(url, headers, data)
 
-    def list(self, message_id, offset=None, limit=None):
+    def list(self, message_id: str, offset: str = None, limit: int = None):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers()
         return self.get(url, headers, params)
 
-    def remove(self, id):
+    def remove(self, id: str):
         url = self.get_endpoint_url()
         headers = self.get_headers(
             accept="application/json", content_type="application/json"
@@ -74,11 +74,11 @@ class Comment(BaseAPI):
 
 
 class Message(BaseAPI):
-    def __init__(self, access_token):
+    def __init__(self, access_token: str):
         super().__init__(access_token=access_token)
         self.comment = Comment(access_token=access_token, endpoint=self._class_name)
 
-    def create(self, channel_id, content):
+    def create(self, channel_id: str, content: str):
         url = self.get_endpoint_url()
         headers = self.get_headers(
             accept="application/json", content_type="application/json"
@@ -94,7 +94,7 @@ class Message(BaseAPI):
 
 
 class Pyswit:
-    def __init__(self, access_token):
+    def __init__(self, access_token: str):
         api_args = {"access_token": access_token}
 
         self.user = User(**api_args)
