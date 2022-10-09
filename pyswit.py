@@ -82,6 +82,12 @@ class Message(BaseAPI):
         data = {"channel_id": channel_id, "content": content}
         return self.post(url, headers, data)
 
+    def info(self, id: str):
+        url = self.get_endpoint_url()
+        headers = self.get_headers()
+        params = {"id": id}
+        return self.get(url=url, headers=headers, params=params)
+
 
 class Pyswit:
     def __init__(self, access_token):
