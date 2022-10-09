@@ -98,6 +98,14 @@ class Message(BaseAPI):
         headers = self.get_headers(accept="application/json")
         return self.get(url=url, headers=headers, params=params)
 
+    def remove(self, id: str):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
 
 class Pyswit:
     def __init__(self, access_token: str):

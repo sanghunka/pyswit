@@ -17,10 +17,10 @@ Python interface for [swit.io](https://swit.io/)
 |                 | POST | message.comment.remove  | swit.message.comment.remove()      | :white_check_mark: |
 |                 | POST | message.create          | swit.message.create()              | :white_check_mark: |
 |                 | GET  | message.info            | swit.message.info()                | :white_check_mark: |
-|                 | GET  | message.list            | swit.message.list                  | :white_check_mark: |
+|                 | GET  | message.list            | swit.message.list()                | :white_check_mark: |
 |                 | POST | message.reaction.create |                                    |                    |
 |                 | POST | message.reaction.remove |                                    |                    |
-|                 | POST | message.remove          |                                    |                    |
+|                 | POST | message.remove          | swit.message.remove()              | :white_check_mark: |
 | Ideas           |      |                         |                                    |                    |
 | Projects        | POST | project.archive         |                                    |                    |
 |                 | POST | project.create          |                                    |                    |
