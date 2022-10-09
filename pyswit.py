@@ -51,18 +51,17 @@ class User(BaseAPI):
 
 class Comment(BaseAPI):
     def create(self, message_id, content):
+        data = self.params_to_dict(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers(
             accept="application/json", content_type="application/json"
         )
-        data = {"message_id": message_id, "content": content}
         return self.post(url, headers, data)
 
     def list(self, message_id, offset=None, limit=None):
+        params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
         headers = self.get_headers()
-        params = locals()
-        del params["self"]
         return self.get(url, headers, params)
 
     def remove(self, id):
