@@ -16,8 +16,8 @@ Python interface for [swit.io](https://swit.io/)
 |                 | GET  | message.comment.list    | swit.message.comment.list()        | :white_check_mark: |
 |                 | POST | message.comment.remove  | swit.message.comment.remove()      | :white_check_mark: |
 |                 | POST | message.create          | swit.message.create()              | :white_check_mark: |
-|                 | GET  | message.info            |                                    |                    |
-|                 | GET  | message.list            |                                    |                    |
+|                 | GET  | message.info            | swit.message.info()                | :white_check_mark: |
+|                 | GET  | message.list            | swit.message.list                  | :white_check_mark: |
 |                 | POST | message.reaction.create |                                    |                    |
 |                 | POST | message.reaction.remove |                                    |                    |
 |                 | POST | message.remove          |                                    |                    |
