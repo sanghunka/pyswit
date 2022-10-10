@@ -10,7 +10,7 @@ Python interface for [swit.io](https://swit.io/)
 |                 | POST | channel.create          |                                    |                    |
 |                 | POST | channel.createDirect    |                                    |                    |
 |                 | GET  | channel.info            |                                    |                    |
-|                 | GET  | channel.list            |                                    |                    |
+|                 | GET  | channel.list            | swit.channel.list()                | :white_check_mark: |
 |                 | POST | channel.update          |                                    |                    |
 | Messages        | POST | message.comment.create  | swit.message.comment.create()      | :white_check_mark: |
 |                 | GET  | message.comment.list    | swit.message.comment.list()        | :white_check_mark: |
