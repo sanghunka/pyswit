@@ -1,4 +1,5 @@
 from setuptools import setup
+from pyswit import __version__
 
 
 with open("README.md") as f:
@@ -7,7 +8,7 @@ with open("README.md") as f:
 
 setup(
     name="pyswit",
-    version="0.0.1",
+    version=__version__,
     packages=["pyswit"],
     description="Swit.io API client",
     long_description=readme,
@@ -16,10 +17,9 @@ setup(
     author_email="sanghunka@gmail.com",
     url="https://github.com/sanghunka/pyswit/",
     install_requires=["requests >= 2.28.1"],
-    license="http://www.apache.org/licenses/LICENSE-2.0",
+    license="Apache Software License",
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
-        "Programming Language :: Python",
         "Programming Language :: Python :: 3 :: Only",
         "Operating System :: OS Independent",
         "Topic :: Communications",
