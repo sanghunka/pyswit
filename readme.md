@@ -2,9 +2,15 @@
 
 Python interface for [swit.io](https://swit.io/)
 
+[![PyPI version fury.io](https://badge.fury.io/py/pyswit.svg)](https://pypi.org/project/pyswit/)
+[![PyPI format](https://img.shields.io/pypi/format/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
+[![PyPI license](https://img.shields.io/pypi/l/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
+
+<br>
+
 ## Requirements
 
-This library requires Python 3.6 and above.
+This library requires Python 3.6 or later.
 
 ## Installation
 
