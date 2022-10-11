@@ -4,6 +4,7 @@ Python interface for [swit.io](https://swit.io/)
 
 [![PyPI version fury.io](https://badge.fury.io/py/pyswit.svg)](https://pypi.org/project/pyswit/)
 [![PyPI format](https://img.shields.io/pypi/format/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI license](https://img.shields.io/pypi/l/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
 
 <br>
@@ -73,7 +74,7 @@ Currently, Pyswit supports the following API.
 | Projects        | POST | project.archive         |                                    |                    |
 |                 | POST | project.create          |                                    |                    |
 |                 | GET  | project.info            |                                    |                    |
-|                 | GET  | project.list            |                                    |                    |
+|                 | GET  | project.list            | swit.project.list()                | :white_check_mark: |
 |                 | GET  | project.tagList         |                                    |                    |
 |                 | POST | project.update          |                                    |                    |
 |                 | GET  | project.user.list       |                                    |                    |
@@ -92,13 +93,13 @@ Currently, Pyswit supports the following API.
 |                 | POST | task.create             |                                    |                    |
 |                 | POST | task.follow.add         |                                    |                    |
 |                 | POST | task.follow.remove      |                                    |                    |
-|                 | GET  | task.info               |                                    |                    |
-|                 | GET  | task.list               |                                    |                    |
-|                 | GET  | task.listByColumn       |                                    |                    |
-|                 | POST | task.move               |                                    |                    |
-|                 | GET  | task.myTaskList         |                                    |                    |
-|                 | POST | task.remove             |                                    |                    |
-|                 | POST | task.update             |                                    |                    |
+|                 | GET  | task.info               | swit.task.info()                   | :white_check_mark: |
+|                 | GET  | task.list               | swit.task.list()                   | :white_check_mark: |
+|                 | GET  | task.listByColumn       | swit.task.listByColumn()           | :white_check_mark: |
+|                 | POST | task.move               | swit.task.move()                   | :white_check_mark: |
+|                 | GET  | task.myTaskList         | swit.task.myTaskList()             | :white_check_mark: |
+|                 | POST | task.remove             | swit.task.remove()                 | :white_check_mark: |
+|                 | POST | task.update             | swit.task.update()                 | :white_check_mark: |
 | Posts           |      |                         | [Advanced Only] No plan to support | :x:                |
 | Boards          |      |                         | [Advanced Only] No plan to support | :x:                |
 | Custom fileds   |      |                         |                                    |                    |
