@@ -2,10 +2,10 @@
 
 Python interface for [swit.io](https://swit.io/)
 
-[![pypi package](https://badge.fury.io/py/pyswit.svg)](https://pypi.org/project/pyswit)
+[![PyPI](https://img.shields.io/pypi/v/pyswit?color=green)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI format](https://img.shields.io/pypi/format/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
-[![PyPI license](https://img.shields.io/pypi/l/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
+[![PyPI license](https://img.shields.io/pypi/l/pyswit?color=%23D22128)](https://pypi.python.org/pypi/pyswit/)
 
 <br>
 
