@@ -155,7 +155,7 @@ class Project(BaseAPI):
     ):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
-        headers = self.get_headers()
+        headers = self.get_headers(accept="application/json")
         return self.get(url=url, headers=headers, params=params)
 
 
@@ -169,7 +169,7 @@ class Task(BaseAPI):
     ):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
-        headers = self.get_headers()
+        headers = self.get_headers(accept="application/json")
         return self.get(url=url, headers=headers, params=params)
 
     def listByColumn(
@@ -181,7 +181,7 @@ class Task(BaseAPI):
     ):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
-        headers = self.get_headers()
+        headers = self.get_headers(accept="application/json")
         return self.get(url=url, headers=headers, params=params)
 
     def move(
