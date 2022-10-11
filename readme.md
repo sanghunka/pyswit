@@ -90,7 +90,7 @@ Currently, Pyswit supports the following API.
 |                 | GET  | task.comment.list       |                                    |                    |
 |                 | POST | task.comment.remove     |                                    |                    |
 |                 | POST | task.comment.update     |                                    |                    |
-|                 | POST | task.create             |                                    |                    |
+|                 | POST | task.create             | swit.task.create()                 | :white_check_mark: |
 |                 | POST | task.follow.add         |                                    |                    |
 |                 | POST | task.follow.remove      |                                    |                    |
 |                 | GET  | task.info               | swit.task.info()                   | :white_check_mark: |

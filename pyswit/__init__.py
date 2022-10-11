@@ -160,6 +160,26 @@ class Project(BaseAPI):
 
 
 class Task(BaseAPI):
+    def create(
+        self,
+        project_id: str,
+        title: str,
+        assign: str = None,
+        color: str = None,
+        content: str = None,
+        end_date: str = None,
+        priority: str = None,
+        start_date: str = None,
+        step: str = None,
+        workspace_id: str = None,
+    ):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
     def info(self, id: str):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
