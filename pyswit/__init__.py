@@ -184,6 +184,21 @@ class Task(BaseAPI):
         headers = self.get_headers()
         return self.get(url=url, headers=headers, params=params)
 
+    def move(
+        self,
+        id: str,
+        target_project_id: str,
+        target_bucket_id: str = None,
+        assign: bool = None,
+        follow: bool = None,
+    ):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
 
 class Pyswit:
     def __init__(self, access_token: str):
