@@ -199,6 +199,17 @@ class Task(BaseAPI):
         )
         return self.post(url=url, headers=headers, data=data)
 
+    def myTaskList(
+        self,
+        workspace_id: str,
+        offset: str = None,
+        limit: int = None,
+    ):
+        params = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(accept="application/json")
+        return self.get(url=url, headers=headers, params=params)
+
 
 class Pyswit:
     def __init__(self, access_token: str):
