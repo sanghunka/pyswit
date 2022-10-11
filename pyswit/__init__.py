@@ -144,6 +144,21 @@ class Message(BaseAPI):
         return self.post(url=url, headers=headers, data=data)
 
 
+class Project(BaseAPI):
+    def list(
+        self,
+        workspace_id: str,
+        disclosure: str = None,
+        activity: str = None,
+        offset: str = None,
+        limit: int = None,
+    ):
+        params = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers()
+        return self.get(url=url, headers=headers, params=params)
+
+
 class Pyswit:
     def __init__(self, access_token: str):
         api_args = {"access_token": access_token}
@@ -151,3 +166,4 @@ class Pyswit:
         self.user = User(**api_args)
         self.message = Message(**api_args)
         self.channel = Channel(**api_args)
+        self.project = Project(**api_args)
