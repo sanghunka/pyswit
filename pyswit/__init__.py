@@ -50,6 +50,12 @@ class User(BaseAPI):
 
 
 class Channel(BaseAPI):
+    def info(self, id: str):
+        params = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(accept="application/json")
+        return self.get(url=url, headers=headers, params=params)
+
     def list(
         self,
         workspace_id: str,
