@@ -76,6 +76,14 @@ class Channel(BaseAPI):
         )
         return self.post(url=url, headers=headers, data=data)
 
+    def createDirect(self, user_id: str, workspace_id: str):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
     def info(self, id: str):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()

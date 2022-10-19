@@ -75,7 +75,7 @@ Currently, Pyswit supports the following API.
 | Workspaces      |      |                         | [Advanced Only] No plan to support | :x:                |
 | Channels        | POST | channel.archive         | swit.channel.archive()             | :white_check_mark: |
 |                 | POST | channel.create          | swit.channel.create()              | :white_check_mark: |
-|                 | POST | channel.createDirect    |                                    |                    |
+|                 | POST | channel.createDirect    | swit.channel.createDirect()        | :white_check_mark: |
 |                 | GET  | channel.info            | swit.channel.info()                | :white_check_mark: |
 |                 | GET  | channel.list            | swit.channel.list()                | :white_check_mark: |
 |                 | POST | channel.update          | swit.channel.update()              | :white_check_mark: |
