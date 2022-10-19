@@ -33,7 +33,8 @@ class BaseAPI:
     def params_to_dict(self, params: dict):
         if "self" in params:
             del params["self"]
-        return params
+        params_without_none = {k: v for k, v in params.items() if v is not None}
+        return params_without_none
 
     def get(self, url: str, headers: dict, data: dict = None, params: dict = None):
         r = requests.get(url=url, headers=headers, json=data, params=params)
