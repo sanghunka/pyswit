@@ -73,12 +73,12 @@ Currently, Pyswit supports the following API.
 | --------------- | ---- | ----------------------- | ---------------------------------- | ------------------ |
 | Users           | GET  | user.info               | swit.user.info()                   | :white_check_mark: |
 | Workspaces      |      |                         | [Advanced Only] No plan to support | :x:                |
-| Channels        | POST | channel.archive         |                                    |                    |
-|                 | POST | channel.create          |                                    |                    |
-|                 | POST | channel.createDirect    |                                    |                    |
-|                 | GET  | channel.info            |                                    |                    |
+| Channels        | POST | channel.archive         | swit.channel.archive()             | :white_check_mark: |
+|                 | POST | channel.create          | swit.channel.create()              | :white_check_mark: |
+|                 | POST | channel.createDirect    | swit.channel.createDirect()        | :white_check_mark: |
+|                 | GET  | channel.info            | swit.channel.info()                | :white_check_mark: |
 |                 | GET  | channel.list            | swit.channel.list()                | :white_check_mark: |
-|                 | POST | channel.update          |                                    |                    |
+|                 | POST | channel.update          | swit.channel.update()              | :white_check_mark: |
 | Messages        | POST | message.comment.create  | swit.message.comment.create()      | :white_check_mark: |
 |                 | GET  | message.comment.list    | swit.message.comment.list()        | :white_check_mark: |
 |                 | POST | message.comment.remove  | swit.message.comment.remove()      | :white_check_mark: |

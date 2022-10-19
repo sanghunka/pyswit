@@ -3,7 +3,7 @@ import json
 import inspect
 
 
-__version__ = "0.0.4"
+__version__ = "0.0.5"
 
 
 class BaseAPI:
@@ -33,7 +33,8 @@ class BaseAPI:
     def params_to_dict(self, params: dict):
         if "self" in params:
             del params["self"]
-        return params
+        params_without_none = {k: v for k, v in params.items() if v is not None}
+        return params_without_none
 
     def get(self, url: str, headers: dict, data: dict = None, params: dict = None):
         r = requests.get(url=url, headers=headers, json=data, params=params)
@@ -41,6 +42,8 @@ class BaseAPI:
 
     def post(self, url: str, headers: dict, data: dict = None):
         r = requests.post(url=url, headers=headers, json=data)
+        if r.status_code == 204:
+            return {"data": [{}]}
         return json.loads(r.content)
 
 
@@ -50,6 +53,43 @@ class User(BaseAPI):
 
 
 class Channel(BaseAPI):
+    def archive(self, id: str, archive: bool = None):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
+    def create(
+        self,
+        workspace_id: str,
+        name: str,
+        description: str = None,
+        is_prev_chat_visible: bool = None,
+        is_private: bool = None,
+    ):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
+    def createDirect(self, user_id: str, workspace_id: str):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
+    def info(self, id: str):
+        params = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(accept="application/json")
+        return self.get(url=url, headers=headers, params=params)
+
     def list(
         self,
         workspace_id: str,
@@ -63,6 +103,20 @@ class Channel(BaseAPI):
         url = self.get_endpoint_url()
         headers = self.get_headers(accept="application/json")
         return self.get(url=url, headers=headers, params=params)
+
+    def update(
+        self,
+        id: str,
+        description: str = None,
+        is_prev_chat_visible: bool = None,
+        name: str = None,
+    ):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
 
 
 class Message(BaseAPI):
