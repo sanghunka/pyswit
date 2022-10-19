@@ -42,6 +42,8 @@ class BaseAPI:
 
     def post(self, url: str, headers: dict, data: dict = None):
         r = requests.post(url=url, headers=headers, json=data)
+        if r.status_code == 204:
+            return {"data": [{}]}
         return json.loads(r.content)
 
 
@@ -51,6 +53,14 @@ class User(BaseAPI):
 
 
 class Channel(BaseAPI):
+    def archive(self, id: str, archive: bool = None):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
     def info(self, id: str):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()

@@ -73,7 +73,7 @@ Currently, Pyswit supports the following API.
 | --------------- | ---- | ----------------------- | ---------------------------------- | ------------------ |
 | Users           | GET  | user.info               | swit.user.info()                   | :white_check_mark: |
 | Workspaces      |      |                         | [Advanced Only] No plan to support | :x:                |
-| Channels        | POST | channel.archive         |                                    |                    |
+| Channels        | POST | channel.archive         | swit.channel.archive()             | :white_check_mark: |
 |                 | POST | channel.create          |                                    |                    |
 |                 | POST | channel.createDirect    |                                    |                    |
 |                 | GET  | channel.info            | swit.channel.info()                | :white_check_mark: |
