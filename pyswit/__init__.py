@@ -71,6 +71,20 @@ class Channel(BaseAPI):
         headers = self.get_headers(accept="application/json")
         return self.get(url=url, headers=headers, params=params)
 
+    def update(
+        self,
+        id: str,
+        description: str = None,
+        is_prev_chat_visible: bool = None,
+        name: str = None,
+    ):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
 
 class Message(BaseAPI):
     class Comment(BaseAPI):
