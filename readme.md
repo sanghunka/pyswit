@@ -3,6 +3,7 @@
 Python interface for [swit.io](https://swit.io/)
 
 [![PyPI](https://img.shields.io/pypi/v/pyswit?color=green)](https://pypi.python.org/pypi/pyswit/)
+[![PyPI download month](https://img.shields.io/pypi/dm/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI format](https://img.shields.io/pypi/format/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI license](https://img.shields.io/pypi/l/pyswit?color=%23D22128)](https://pypi.python.org/pypi/pyswit/)
@@ -33,7 +34,7 @@ print(swit.user.info())
 
 # Create a message
 channel_id = "<your_channel_id>"  # not channel name
-response = swit.message.create(channel_id=channel_id, content="Hello World")
+response = swit.message.create(channel_id=channel_id, content="Hello, World!")
 
 # Get message_id
 message_id = response["data"]["message"]["message_id"]
@@ -43,6 +44,23 @@ swit.message.reaction.create(message_id=message_id, reaction_name=":smile:")
 
 # Comment on a message
 swit.message.comment.create(message_id=message_id, content="Comment string here")
+```
+
+## Webhook
+
+Pyswit supports webhook.
+
+```sh
+curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' <your_webhook_url>
+```
+
+The above curl request can be implemented with pyswit as follows.
+
+```py
+from pyswit import webhook
+
+webhook_url="<your_webhook_url>"
+webhook(url=webhook_url, text="Hello, World!")
 ```
 
 ## Documentation

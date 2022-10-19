@@ -3,7 +3,7 @@ import json
 import inspect
 
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 
 
 class BaseAPI:
@@ -273,3 +273,10 @@ class Pyswit:
         self.channel = Channel(**api_args)
         self.project = Project(**api_args)
         self.task = Task(**api_args)
+
+
+def webhook(url: str, text: str):
+    headers = {"Content-Type": "application/json"}
+    data = {"text": text}
+    r = requests.post(url=url, headers=headers, json=data)
+    return json.loads(r.content)
