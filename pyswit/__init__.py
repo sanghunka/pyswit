@@ -61,6 +61,21 @@ class Channel(BaseAPI):
         )
         return self.post(url=url, headers=headers, data=data)
 
+    def create(
+        self,
+        workspace_id: str,
+        name: str,
+        description: str = None,
+        is_prev_chat_visible: bool = None,
+        is_private: bool = None,
+    ):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
     def info(self, id: str):
         params = self.params_to_dict(locals())
         url = self.get_endpoint_url()
