@@ -94,13 +94,13 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | POST | message.reaction.remove | :white_check_mark: |
 |                 | POST | message.remove          | :white_check_mark: |
 | Ideas           |      |                         |                    |
-| Projects        | POST | project.archive         |                    |
-|                 | POST | project.create          |                    |
-|                 | GET  | project.info            |                    |
+| Projects        | POST | project.archive         | :white_check_mark: |
+|                 | POST | project.create          | :white_check_mark: |
+|                 | GET  | project.info            | :white_check_mark: |
 |                 | GET  | project.list            | :white_check_mark: |
-|                 | GET  | project.tagList         |                    |
-|                 | POST | project.update          |                    |
-|                 | GET  | project.user.list       |                    |
+|                 | GET  | project.tagList         | :white_check_mark: |
+|                 | POST | project.update          | :white_check_mark: |
+|                 | GET  | project.user.list       | :white_check_mark: |
 | Project buckets |      |                         |                    |
 | Tasks           | POST | task.assignee.add       |                    |
 |                 | POST | task.asignee.remove     |                    |
