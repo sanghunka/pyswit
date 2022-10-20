@@ -72,7 +72,12 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | HTTP | endpoint                | pyswit             |
 | --------------- | ---- | ----------------------- | ------------------ |
 | Users           | GET  | user.info               | :white_check_mark: |
-| Workspaces      |      |                         |                    |
+| Workspaces      | GET  | workspace.info          | :white_check_mark: |
+|                 | GET  | workspace.list          | :white_check_mark: |
+|                 | POST | workspace.update        | :white_check_mark: |
+|                 | GET  | workspace.user.info     | :white_check_mark: |
+|                 | GET  | workspace.user.list     | :white_check_mark: |
+|                 | POST | workspace.user.update   | :white_check_mark: |
 | Channels        | POST | channel.archive         | :white_check_mark: |
 |                 | POST | channel.create          | :white_check_mark: |
 |                 | POST | channel.createDirect    | :white_check_mark: |
