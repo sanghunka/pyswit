@@ -253,6 +253,13 @@ class Message(BaseAPI):
 
 
 class Project(BaseAPI):
+    class User(BaseAPI):
+        pass
+
+    def __init__(self, access_token: str):
+        super().__init__(access_token=access_token)
+        self.user = self.User(access_token=access_token, endpoint=self._class_name)
+
     def list(
         self,
         workspace_id: str,
