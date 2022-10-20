@@ -52,6 +52,14 @@ class User(BaseAPI):
         return self.get(url=self.get_endpoint_url(), headers=self.get_headers())
 
 
+class Workspace(BaseAPI):
+    def info(self, id: str):
+        params = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(accept="application/json")
+        return self.get(url=url, headers=headers, params=params)
+
+
 class Channel(BaseAPI):
     def archive(self, id: str, archive: bool = None):
         data = self.params_to_dict(locals())
@@ -323,6 +331,7 @@ class Pyswit:
         api_args = {"access_token": access_token}
 
         self.user = User(**api_args)
+        self.workspace = Workspace(**api_args)
         self.message = Message(**api_args)
         self.channel = Channel(**api_args)
         self.project = Project(**api_args)
