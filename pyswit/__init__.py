@@ -264,6 +264,14 @@ class Project(BaseAPI):
         super().__init__(access_token=access_token)
         self.user = self.User(access_token=access_token, endpoint=self._class_name)
 
+    def archive(self, id: str, archive: bool = None):
+        data = self.params_to_dict(locals())
+        url = self.get_endpoint_url()
+        headers = self.get_headers(
+            accept="application/json", content_type="application/json"
+        )
+        return self.post(url=url, headers=headers, data=data)
+
     def create(
         self,
         workspace_id: str,
