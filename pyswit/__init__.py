@@ -543,6 +543,25 @@ class Oauth(BaseAPI):
             return res
         return res
 
+    def refresh_access_token(self, refresh_token: str = None):
+        data = {
+            "grant_type": "refresh_token",
+            "client_id": self.client_id,
+            "client_secret": self.client_secret,
+            "refresh_token": refresh_token,
+        }
+        url = "https://openapi.swit.io/oauth/token"
+        headers = self.get_headers(
+            content_type="application/x-www-form-urlencoded", authorization=False
+        )
+        try:
+            res = self.post(url=url, headers=headers, data=data)
+            self.access_token = res["access_token"]
+            self.refresh_token = res["refresh_token"]
+        except:
+            return res
+        return res
+
 
 class Pyswit:
     def __init__(self, access_token: str):
