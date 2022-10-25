@@ -457,6 +457,45 @@ class Oauth(BaseAPI):
         self.scope = self._get_scope(scope)
         super().__init__(access_token=access_token)
 
+    def _get_scope(self, scope_type):
+        free_standard_scopes = [
+            "channel:read",
+            "channel:write",
+            "idea:read",
+            "idea:write",
+            "message:read",
+            "message:write",
+            "project:read",
+            "project:write",
+            "task:read",
+            "task:write",
+            "user:read",
+            "workspace:read",
+            "workspace:write",
+            "approval:read",
+            "approval:write",
+        ]
+
+        scope_type = scope_type.lower()
+        if scope_type == "free":
+            return "+".join(free_standard_scopes)
+        elif scope_type == "standard":
+            return "+".join(free_standard_scopes)
+        elif scope_type == "advanced":
+            advanced_scopes = free_standard_scopes + ["admin:read", "admin:write"]
+            return "+".join(advanced_scopes)
+        else:
+            return scope_type
+
+    def authorize_helper(self):
+        self.client_id = input("client_id? ")
+        self.redirect_uri = input("redirect_uri? ")
+        self.response_type = input(
+            "response_type? [Currently, only 'code' is supported] "
+        )
+        self.state = input("state? ")
+        self.scope = self._get_scope(input("scope? [free/standard/advanced/custom] "))
+
 class Pyswit:
     def __init__(self, access_token: str):
         api_args = {"access_token": access_token}
