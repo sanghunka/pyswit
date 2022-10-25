@@ -523,6 +523,27 @@ class Oauth(BaseAPI):
             "In the query string, <your-code> is authorization code which will be used to exchange for an access token."
         )
 
+    def exchange_token(self, code: str):
+        data = {
+            "grant_type": "authorization_code",
+            "client_id": self.client_id,
+            "client_secret": self.client_secret,
+            "redirect_uri": self.redirect_uri,
+            "code": code,
+        }
+        url = "https://openapi.swit.io/oauth/token"
+        headers = self.get_headers(
+            content_type="application/x-www-form-urlencoded", authorization=False
+        )
+        try:
+            res = self.post(url=url, headers=headers, data=data)
+            self.access_token = res["access_token"]
+            self.refresh_token = res["refresh_token"]
+        except:
+            return res
+        return res
+
+
 class Pyswit:
     def __init__(self, access_token: str):
         api_args = {"access_token": access_token}
