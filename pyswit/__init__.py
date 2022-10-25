@@ -455,7 +455,6 @@ class Oauth(BaseAPI):
         self.response_type = response_type
         self.state = state
         self.scope = self._get_scope(scope)
-        super().__init__(access_token=access_token)
 
     def _get_scope(self, scope_type):
         free_standard_scopes = [
