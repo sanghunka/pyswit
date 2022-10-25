@@ -496,6 +496,33 @@ class Oauth(BaseAPI):
         self.state = input("state? ")
         self.scope = self._get_scope(input("scope? [free/standard/advanced/custom] "))
 
+    def authorize(self):
+        endpoint_url = "https://openapi.swit.io/oauth/authorize"
+
+        url = (
+            f"{endpoint_url}?client_id={self.client_id}"
+            f"&redirect_uri={self.redirect_uri}"
+            f"&response_type={self.response_type}"
+            f"&state={self.state}"
+            f"&scope={self.scope}"
+        )
+
+        print()
+        print(f"🔗 {url}")
+        print()
+        print("This URL will be redirected to the authentication web page.")
+        print("Please accept the permission request.")
+        print()
+        if self.state != "":
+            print(f"🔗 {self.redirect_uri}?code=<your-code>&state={self.state}")
+        else:
+            print(f"🔗 {self.redirect_uri}?code=<your-code>")
+        print()
+        print("Upon confirmation, the user is redirected to this url.")
+        print(
+            "In the query string, <your-code> is authorization code which will be used to exchange for an access token."
+        )
+
 class Pyswit:
     def __init__(self, access_token: str):
         api_args = {"access_token": access_token}
