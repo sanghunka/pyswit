@@ -435,6 +435,28 @@ class Task(BaseAPI):
         return self.post(url=url, headers=headers, data=data)
 
 
+class Oauth(BaseAPI):
+    def __init__(
+        self,
+        access_token: str = None,
+        refresh_token: str = None,
+        client_id: str = None,
+        client_secret: str = None,
+        redirect_uri: str = None,
+        response_type: str = None,
+        state: str = None,
+        scope: str = None,
+    ):
+        self.access_token = access_token
+        self.refresh_token = refresh_token
+        self.client_id = client_id
+        self.client_secret = client_secret
+        self.redirect_uri = redirect_uri
+        self.response_type = response_type
+        self.state = state
+        self.scope = self._get_scope(scope)
+        super().__init__(access_token=access_token)
+
 class Pyswit:
     def __init__(self, access_token: str):
         api_args = {"access_token": access_token}
