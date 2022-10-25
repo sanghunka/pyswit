@@ -47,7 +47,11 @@ class BaseAPI:
         return json.loads(r.content)
 
     def post(self, url: str, headers: dict, data: dict = None):
-        r = requests.post(url=url, headers=headers, json=data)
+        if headers["Content-Type"] == "application/json":
+            r = requests.post(url=url, headers=headers, json=data)
+        if headers["Content-Type"] == "application/x-www-form-urlencoded":
+            r = requests.post(url=url, headers=headers, data=data)
+
         if r.status_code == 204:
             return {"data": [{}]}
         return json.loads(r.content)
