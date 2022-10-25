@@ -22,8 +22,14 @@ class BaseAPI:
         outer_func_name = inspect.getframeinfo(cframe.f_back).function
         return f"{self.api_url}/{self.endpoint}.{outer_func_name}"
 
-    def get_headers(self, accept: str = None, content_type: str = None):
-        headers = {"Authorization": f"Bearer {self.access_token}"}
+    def get_headers(
+        self, accept: str = None, content_type: str = None, authorization: bool = True
+    ):
+        if authorization:
+            headers = {"Authorization": f"Bearer {self.access_token}"}
+        else:
+            headers = {}
+
         if accept:
             headers.update({"Accept": accept})
         if content_type:
