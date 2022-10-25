@@ -523,7 +523,7 @@ class Oauth(BaseAPI):
             "In the query string, <your-code> is authorization code which will be used to exchange for an access token."
         )
 
-    def exchange_token(self, code: str):
+    def exchange_for_access_token(self, code: str):
         data = {
             "grant_type": "authorization_code",
             "client_id": self.client_id,
