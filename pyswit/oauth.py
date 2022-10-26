@@ -20,7 +20,10 @@ class Oauth(BaseAPI):
         self.redirect_uri = redirect_uri
         self.response_type = response_type
         self.state = state
-        self.scope = self._get_scope(scope)
+        if scope:
+            self.scope = self._get_scope(scope)
+        else:
+            self.scope = None
 
     def _get_scope(self, scope_type):
         free_standard_scopes = [
@@ -68,9 +71,11 @@ class Oauth(BaseAPI):
             f"{endpoint_url}?client_id={self.client_id}"
             f"&redirect_uri={self.redirect_uri}"
             f"&response_type={self.response_type}"
-            f"&state={self.state}"
             f"&scope={self.scope}"
         )
+
+        if self.state:
+            url = url + f"&state={self.state}"
 
         print()
         print(f"🔗 {url}")
@@ -78,10 +83,10 @@ class Oauth(BaseAPI):
         print("This URL will be redirected to the authentication web page.")
         print("Please accept the permission request.")
         print()
-        if self.state != "":
-            print(f"🔗 {self.redirect_uri}?code=<your-code>&state={self.state}")
-        else:
+        if (self.state == "") | (self.state is None):
             print(f"🔗 {self.redirect_uri}?code=<your-code>")
+        else:
+            print(f"🔗 {self.redirect_uri}?code=<your-code>&state={self.state}")
         print()
         print("Upon confirmation, the user is redirected to this url.")
         print(
