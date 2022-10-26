@@ -1,14 +1,10 @@
 import requests
 import json
 from pyswit.baseAPI import BaseAPI
+from pyswit.user import User
 
 
 __version__ = "0.0.7"
-
-
-class User(BaseAPI):
-    def info(self):
-        return self.get(url=self.get_endpoint_url(), headers=self.get_headers())
 
 
 class Workspace(BaseAPI):
