@@ -1,6 +1,3 @@
-import requests
-import json
-from pyswit.baseAPI import BaseAPI
 from pyswit.user import User
 from pyswit.workspace import Workspace
 from pyswit.channel import Channel
