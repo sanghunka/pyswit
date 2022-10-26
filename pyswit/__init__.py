@@ -5,7 +5,7 @@ from pyswit.message import Message
 from pyswit.project import Project
 from pyswit.task import Task
 
-__version__ = "0.0.7"
+__version__ = "0.0.8"
 
 
 class Pyswit:
