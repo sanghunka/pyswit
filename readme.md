@@ -49,6 +49,7 @@ swit.message.comment.create(message_id=message_id, content="Comment string here"
 ## Webhook
 
 Pyswit supports webhook.
+Webhook API does not require access token
 
 ```sh
 curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' <your_webhook_url>
