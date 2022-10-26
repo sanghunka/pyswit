@@ -1,6 +1,6 @@
 # Pyswit: Python + Swit.io
 
-Python interface for [swit.io](https://swit.io/)
+Python interface for [Swit.io](https://swit.io/) RESTful API
 
 [![PyPI](https://img.shields.io/pypi/v/pyswit?color=green)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI download month](https://img.shields.io/pypi/dm/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
@@ -20,12 +20,16 @@ This library requires Python 3.6 or later.
 $ pip install pyswit
 ```
 
+## Authentication
+
+- You need `access token` to use Swit Open API.
+- Please refer [Getting started with authentication](./docs/getting-started-with-authentication.md)
+
 ## Examples
 
 ```py
 from pyswit import Pyswit
 
-# How to get access token: https://developers.swit.io/documentation#authentication
 access_token = "<your access token>"
 swit = Pyswit(access_token)
 
@@ -49,6 +53,7 @@ swit.message.comment.create(message_id=message_id, content="Comment string here"
 ## Webhook
 
 Pyswit supports webhook.
+
 Webhook API does not require access token
 
 ```sh
