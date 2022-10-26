@@ -57,7 +57,7 @@ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"
 The above curl request can be implemented with pyswit as follows.
 
 ```py
-from pyswit import webhook
+from pyswit.webhook import webhook
 
 webhook_url="<your_webhook_url>"
 webhook(url=webhook_url, text="Hello, World!")
