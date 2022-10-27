@@ -20,7 +20,13 @@ class Task(BaseAPI):
             return self.post(url=url, headers=headers, data=data)
 
     class Comment(BaseAPI):
-        pass
+        def create(self, task_id: str, content: str):
+            data = self.params_to_dict(locals())
+            url = self.get_endpoint_url()
+            headers = self.get_headers(
+                accept="application/json", content_type="application/json"
+            )
+            return self.post(url=url, headers=headers, data=data)
 
     class Follow(BaseAPI):
         def add(self, task_id: str, user_id: str):
