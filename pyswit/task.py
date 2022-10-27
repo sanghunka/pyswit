@@ -29,6 +29,12 @@ class Task(BaseAPI):
             )
             return self.post(url=url, headers=headers, data=data)
 
+        def info(self, id: str):
+            params = self.params_to_dict(locals())
+            url = self.get_endpoint_url()
+            headers = self.get_headers(accept="application/json")
+            return self.get(url=url, headers=headers, params=params)
+
     class Comment(BaseAPI):
         def create(self, task_id: str, content: str):
             data = self.params_to_dict(locals())
