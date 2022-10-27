@@ -99,7 +99,14 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | POST | message.reaction.create | :white_check_mark: |
 |                 | POST | message.reaction.remove | :white_check_mark: |
 |                 | POST | message.remove          | :white_check_mark: |
-| Ideas           |      |                         |                    |
+| Ideas           | POST | idea.comment.create     |                    |
+|                 | GET  | idea.comment.list       |                    |
+|                 | POST | idea.comment.remove     |                    |
+|                 | POST | idea.create             |                    |
+|                 | GET  | idea.info               |                    |
+|                 | GET  | idea.list               |                    |
+|                 | POST | idea.reaction.create    |                    |
+|                 | POST | idea.reaction.remove    |                    |
 | Projects        | POST | project.archive         | :white_check_mark: |
 |                 | POST | project.create          | :white_check_mark: |
 |                 | GET  | project.info            | :white_check_mark: |
@@ -107,7 +114,10 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | GET  | project.tagList         | :white_check_mark: |
 |                 | POST | project.update          | :white_check_mark: |
 |                 | GET  | project.user.list       | :white_check_mark: |
-| Project buckets |      |                         |                    |
+| Project buckets | POST | project.bucket.create   |                    |
+|                 | GET  | project.bucket.info     |                    |
+|                 | GET  | project.bucket.list     |                    |
+|                 | POST | project.bucket.update   |                    |
 | Tasks           | POST | task.assignee.add       | :white_check_mark: |
 |                 | POST | task.asignee.remove     | :white_check_mark: |
 |                 | POST | task.checklist.create   | :white_check_mark: |
