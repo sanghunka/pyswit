@@ -19,6 +19,9 @@ class Task(BaseAPI):
             )
             return self.post(url=url, headers=headers, data=data)
 
+    class Comment(BaseAPI):
+        pass
+
     class Follow(BaseAPI):
         def add(self, task_id: str, user_id: str):
             data = self.params_to_dict(locals())
@@ -39,6 +42,9 @@ class Task(BaseAPI):
     def __init__(self, access_token: str):
         super().__init__(access_token=access_token)
         self.assignee = self.Assignee(
+            access_token=access_token, endpoint=self._class_name
+        )
+        self.comment = self.Comment(
             access_token=access_token, endpoint=self._class_name
         )
         self.follow = self.Follow(access_token=access_token, endpoint=self._class_name)
