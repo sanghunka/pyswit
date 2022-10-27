@@ -2,6 +2,13 @@ from pyswit.baseAPI import BaseAPI
 
 
 class Task(BaseAPI):
+    class Follow(BaseAPI):
+        pass
+
+    def __init__(self, access_token: str):
+        super().__init__(access_token=access_token)
+        self.follow = self.Follow(access_token=access_token, endpoint=self._class_name)
+
     def create(
         self,
         project_id: str,
