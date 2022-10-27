@@ -141,8 +141,8 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | POST | task.update             | :white_check_mark: |
 | Posts           |      |                         | :x:                |
 | Boards          |      |                         | :x:                |
-| Custom fileds   |      |                         |                    |
-| Approvals       |      |                         |                    |
+| Custom fileds   |      |                         | :x:                |
+| Approvals       |      |                         | :x:                |
 
-- Advanced Only API: `Posts`, `Boards`
+- Advanced Only API: `Posts`, `Boards`, `Custom fileds`, `Approvals`
 - Pyswit has no plan to support Advanced Only API
