@@ -28,6 +28,12 @@ class Task(BaseAPI):
             )
             return self.post(url=url, headers=headers, data=data)
 
+        def list(self, task_id: str, limit: int = None, offset: str = None):
+            params = self.params_to_dict(locals())
+            url = self.get_endpoint_url()
+            headers = self.get_headers(accept="application/json")
+            return self.get(url=url, headers=headers, params=params)
+
     class Follow(BaseAPI):
         def add(self, task_id: str, user_id: str):
             data = self.params_to_dict(locals())
