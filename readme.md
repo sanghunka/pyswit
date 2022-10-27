@@ -114,10 +114,10 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | GET  | project.tagList         | :white_check_mark: |
 |                 | POST | project.update          | :white_check_mark: |
 |                 | GET  | project.user.list       | :white_check_mark: |
-| Project buckets | POST | project.bucket.create   |                    |
-|                 | GET  | project.bucket.info     |                    |
-|                 | GET  | project.bucket.list     |                    |
-|                 | POST | project.bucket.update   |                    |
+| Project buckets | POST | project.bucket.create   | :white_check_mark: |
+|                 | GET  | project.bucket.info     | :white_check_mark: |
+|                 | GET  | project.bucket.list     | :white_check_mark: |
+|                 | POST | project.bucket.update   | :white_check_mark: |
 | Tasks           | POST | task.assignee.add       | :white_check_mark: |
 |                 | POST | task.asignee.remove     | :white_check_mark: |
 |                 | POST | task.checklist.create   | :white_check_mark: |
