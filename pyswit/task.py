@@ -19,6 +19,8 @@ class Task(BaseAPI):
             )
             return self.post(url=url, headers=headers, data=data)
 
+    class Checklist(BaseAPI):
+        pass
     class Comment(BaseAPI):
         def create(self, task_id: str, content: str):
             data = self.params_to_dict(locals())
@@ -70,6 +72,9 @@ class Task(BaseAPI):
     def __init__(self, access_token: str):
         super().__init__(access_token=access_token)
         self.assignee = self.Assignee(
+            access_token=access_token, endpoint=self._class_name
+        )
+        self.checklist = self.Checklist(
             access_token=access_token, endpoint=self._class_name
         )
         self.comment = self.Comment(
