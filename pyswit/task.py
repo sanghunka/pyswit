@@ -3,7 +3,14 @@ from pyswit.baseAPI import BaseAPI
 
 class Task(BaseAPI):
     class Follow(BaseAPI):
-        pass
+        def add(self, task_id: str, user_id: str):
+            data = self.params_to_dict(locals())
+            url = self.get_endpoint_url()
+            headers = self.get_headers(
+                accept="application/json", content_type="application/json"
+            )
+            return self.post(url=url, headers=headers, data=data)
+
 
     def __init__(self, access_token: str):
         super().__init__(access_token=access_token)
