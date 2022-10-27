@@ -9,9 +9,12 @@ class Project(BaseAPI):
             headers = self.get_headers(accept="application/json")
             return self.get(url=url, headers=headers, params=params)
 
+    class Bucket(BaseAPI):
+        Pass
     def __init__(self, access_token: str):
         super().__init__(access_token=access_token)
         self.user = self.User(access_token=access_token, endpoint=self._class_name)
+        self.bucket = self.Bucket(access_token=access_token, endpoint=self._class_name)
 
     def archive(self, id: str, archive: bool = None):
         data = self.params_to_dict(locals())
