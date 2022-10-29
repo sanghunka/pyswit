@@ -99,7 +99,15 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | POST | message.reaction.create | :white_check_mark: |
 |                 | POST | message.reaction.remove | :white_check_mark: |
 |                 | POST | message.remove          | :white_check_mark: |
-| Ideas           |      |                         |                    |
+| Ideas           | POST | idea.comment.create     | :white_check_mark: |
+|                 | GET  | idea.comment.list       | :white_check_mark: |
+|                 | POST | idea.comment.remove     | :white_check_mark: |
+|                 | POST | idea.create             | :white_check_mark: |
+|                 | GET  | idea.info               | :white_check_mark: |
+|                 | GET  | idea.list               | :white_check_mark: |
+|                 | POST | idea.remove             | :white_check_mark: |
+|                 | POST | idea.reaction.create    | :white_check_mark: |
+|                 | POST | idea.reaction.remove    | :white_check_mark: |
 | Projects        | POST | project.archive         | :white_check_mark: |
 |                 | POST | project.create          | :white_check_mark: |
 |                 | GET  | project.info            | :white_check_mark: |
@@ -107,21 +115,24 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | GET  | project.tagList         | :white_check_mark: |
 |                 | POST | project.update          | :white_check_mark: |
 |                 | GET  | project.user.list       | :white_check_mark: |
-| Project buckets |      |                         |                    |
-| Tasks           | POST | task.assignee.add       |                    |
-|                 | POST | task.asignee.remove     |                    |
-|                 | POST | task.checklist.create   |                    |
-|                 | GET  | task.checklist.info     |                    |
-|                 | GET  | task.checklist.list     |                    |
-|                 | POST | task.checklist.remove   |                    |
-|                 | POST | task.checklist.update   |                    |
-|                 | POST | task.comment.create     |                    |
-|                 | GET  | task.comment.list       |                    |
-|                 | POST | task.comment.remove     |                    |
-|                 | POST | task.comment.update     |                    |
+| Project buckets | POST | project.bucket.create   | :white_check_mark: |
+|                 | GET  | project.bucket.info     | :white_check_mark: |
+|                 | GET  | project.bucket.list     | :white_check_mark: |
+|                 | POST | project.bucket.update   | :white_check_mark: |
+| Tasks           | POST | task.assignee.add       | :white_check_mark: |
+|                 | POST | task.asignee.remove     | :white_check_mark: |
+|                 | POST | task.checklist.create   | :white_check_mark: |
+|                 | GET  | task.checklist.info     | :white_check_mark: |
+|                 | GET  | task.checklist.list     | :white_check_mark: |
+|                 | POST | task.checklist.remove   | :white_check_mark: |
+|                 | POST | task.checklist.update   | :white_check_mark: |
+|                 | POST | task.comment.create     | :white_check_mark: |
+|                 | GET  | task.comment.list       | :white_check_mark: |
+|                 | POST | task.comment.remove     | :white_check_mark: |
+|                 | POST | task.comment.update     | :white_check_mark: |
 |                 | POST | task.create             | :white_check_mark: |
-|                 | POST | task.follow.add         |                    |
-|                 | POST | task.follow.remove      |                    |
+|                 | POST | task.follow.add         | :white_check_mark: |
+|                 | POST | task.follow.remove      | :white_check_mark: |
 |                 | GET  | task.info               | :white_check_mark: |
 |                 | GET  | task.list               | :white_check_mark: |
 |                 | GET  | task.listByColumn       | :white_check_mark: |
@@ -131,8 +142,8 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | POST | task.update             | :white_check_mark: |
 | Posts           |      |                         | :x:                |
 | Boards          |      |                         | :x:                |
-| Custom fileds   |      |                         |                    |
-| Approvals       |      |                         |                    |
+| Custom fileds   |      |                         | :x:                |
+| Approvals       |      |                         | :x:                |
 
-- Advanced Only API: `Posts`, `Boards`
+- Advanced Only API: `Posts`, `Boards`, `Custom fileds`, `Approvals`
 - Pyswit has no plan to support Advanced Only API
