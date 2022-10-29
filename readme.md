@@ -99,14 +99,15 @@ webhook(url=webhook_url, text="Hello, World!")
 |                 | POST | message.reaction.create | :white_check_mark: |
 |                 | POST | message.reaction.remove | :white_check_mark: |
 |                 | POST | message.remove          | :white_check_mark: |
-| Ideas           | POST | idea.comment.create     |                    |
-|                 | GET  | idea.comment.list       |                    |
-|                 | POST | idea.comment.remove     |                    |
-|                 | POST | idea.create             |                    |
-|                 | GET  | idea.info               |                    |
-|                 | GET  | idea.list               |                    |
-|                 | POST | idea.reaction.create    |                    |
-|                 | POST | idea.reaction.remove    |                    |
+| Ideas           | POST | idea.comment.create     | :white_check_mark: |
+|                 | GET  | idea.comment.list       | :white_check_mark: |
+|                 | POST | idea.comment.remove     | :white_check_mark: |
+|                 | POST | idea.create             | :white_check_mark: |
+|                 | GET  | idea.info               | :white_check_mark: |
+|                 | GET  | idea.list               | :white_check_mark: |
+|                 | POST | idea.remove             | :white_check_mark: |
+|                 | POST | idea.reaction.create    | :white_check_mark: |
+|                 | POST | idea.reaction.remove    | :white_check_mark: |
 | Projects        | POST | project.archive         | :white_check_mark: |
 |                 | POST | project.create          | :white_check_mark: |
 |                 | GET  | project.info            | :white_check_mark: |
