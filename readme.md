@@ -1,6 +1,6 @@
 # Pyswit: Python + Swit.io
 
-Python interface for [Swit.io](https://swit.io/) RESTful API
+Python library for [Swit.io](https://swit.io/) RESTful API
 
 [![PyPI](https://img.shields.io/pypi/v/pyswit?color=green)](https://pypi.python.org/pypi/pyswit/)
 [![PyPI download month](https://img.shields.io/pypi/dm/pyswit.svg)](https://pypi.python.org/pypi/pyswit/)
